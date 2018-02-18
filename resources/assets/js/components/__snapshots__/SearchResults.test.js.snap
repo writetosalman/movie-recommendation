@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchResults Test 1`] = `
+<div
+  className="container"
+>
+  <div
+    className="form-group"
+  />
+  <table
+    className="table table-striped"
+  >
+    <thead>
+      <tr>
+        <th
+          scope="col"
+        >
+          Movies
+        </th>
+        <th
+          scope="col"
+        >
+          Rating
+        </th>
+        <th
+          scope="col"
+        >
+          Genres
+        </th>
+        <th
+          scope="col"
+        >
+          Show Time
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td
+          colSpan={3}
+        >
+          no movie recommendations
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;

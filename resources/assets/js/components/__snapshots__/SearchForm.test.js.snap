@@ -1,0 +1,101 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchForm Test 1`] = `
+<div
+  className="container"
+>
+  <div
+    className="card"
+  >
+    <div
+      className="card-header "
+    >
+      <b>
+        Movie Recommendations
+      </b>
+    </div>
+    <div
+      className="card-body"
+    >
+      <h5
+        className="card-title"
+      >
+        Search for movies
+      </h5>
+      <h6
+        className="card-subtitle mb-2 text-muted"
+      >
+        Use this form to find movies based on genre and showTime
+      </h6>
+      <br />
+      <form
+        className="form-horizontal"
+        noValidate={true}
+        onSubmit={[Function]}
+      >
+        <div
+          className="form-group"
+        >
+          <label
+            htmlFor="inputGenre"
+          >
+            Movie Genre
+          </label>
+          <input
+            className="form-control"
+            id="idInputGenre"
+            name="genre"
+            onChange={[Function]}
+            placeholder="Type genre"
+            required={true}
+            tabIndex="1"
+            type="text"
+            value=""
+          />
+          <small
+            className="form-text text-muted"
+          >
+            Movie genre can be Animation, Drama, Comedy etc.
+          </small>
+          <div
+            className="form-control-feedback"
+          />
+        </div>
+        <div
+          className="form-group"
+        >
+          <label
+            htmlFor="inputTime"
+          >
+            Movie Time
+          </label>
+          <input
+            className="form-control"
+            id="idInputTime"
+            name="showTime"
+            onChange={[Function]}
+            placeholder=""
+            required={true}
+            tabIndex="2"
+            type="datetime-local"
+            value=""
+          />
+        </div>
+      </form>
+    </div>
+    <div
+      className="card-footer text-right"
+    >
+      
+      <button
+        className="btn btn-primary"
+        disabled={true}
+        onClick={[Function]}
+        tabIndex="3"
+      >
+         Search » 
+      </button>
+    </div>
+  </div>
+</div>
+`;
