@@ -32,4 +32,8 @@ For viewing project in browser: -
 - **React** tests are executed by command `jest` or `npm run test`
 - **PHP** tests are executed by `./vendor/bin/phpunit` 
 
+### Building Assets
+
+If you want to rebuild assets, run `npm run production` or `npm run dev` based on your environment.
+
 --
