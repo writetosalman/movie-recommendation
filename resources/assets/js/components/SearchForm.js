@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import PromiseButton from './PromiseButton';
-import { FormWithConstraints, FieldFeedback }   from 'react-form-with-constraints';
-import { FieldFeedbacks, FormGroup } from 'react-form-with-constraints/lib/Bootstrap4';
+import { FormWithConstraints, FieldFeedbacks, FieldFeedback }   from 'react-form-with-constraints';
 import { JsonPost } from './RESTService';
 
 export default class SearchForm extends Component
@@ -34,6 +33,13 @@ export default class SearchForm extends Component
     focusTextInput() {
         // Explicitly focus the text input using the raw DOM API
         this.textInput.focus();
+    }
+
+    /**
+     * Component mounted, do heavy lifting
+     */
+    componentDidMount() {
+        this.focusTextInput();
     }
 
     /**
@@ -128,28 +134,32 @@ export default class SearchForm extends Component
                         <FormWithConstraints className="form-horizontal" ref={formWithConstraints => this.form = formWithConstraints}
                                              onSubmit={this.formSubmit} noValidate>
                                 <div className="form-group">
-                                    <label htmlFor="inputGenre">Movie Genre</label>
+                                    <label htmlFor="idInputGenre">Movie Genre</label>
                                     <input type="text" className="form-control" id="idInputGenre" name="genre" placeholder="Type genre"
                                            ref={ (input) => { this.textInput = input; } }   tabIndex="1"
                                            onChange={this.handleInputChange} value={this.state.genre} required />
-                                        <small className="form-text text-muted">Movie genre can be Animation, Drama, Comedy etc.</small>
+                                    <small className="form-text text-muted">Movie genre can be Animation, Drama, Comedy etc.</small>
 
-                                        <FieldFeedbacks for="genre" show="all">
-                                            <FieldFeedback when="*" />
-                                        </FieldFeedbacks>
+                                    <FieldFeedbacks for="genre" show="all">
+                                        <FieldFeedback when="*" />
+                                    </FieldFeedbacks>
                                 </div>
                                 <div className="form-group">
                                     <label htmlFor="inputTime">Movie Time</label>
                                     <input type="datetime-local" className="form-control" id="idInputTime" name="showTime" placeholder=""
                                            tabIndex="2"
                                            onChange={this.handleInputChange} value={this.state.showTime} required />
+
+                                    <FieldFeedbacks for="showTime" show="all">
+                                        <FieldFeedback when="*" />
+                                    </FieldFeedbacks>
                                 </div>
 
                         </FormWithConstraints>
                     </div>
                     <div className="card-footer text-right">
                         {this.state.statusMessage &&
-                            <span className="text-danger">{this.state.statusMessage}&nbsp;&nbsp;</span>
+                            <span className="error">{this.state.statusMessage}&nbsp;&nbsp;</span>
                         }
                         <PromiseButton
                             tabIndex="3"

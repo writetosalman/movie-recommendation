@@ -7,4 +7,4 @@ echo ".env file copied from .env.example"
 php artisan key:generate
 php artisan config:clear
 echo "Keys generated completed"
-echo "Please first edit .env file with your mysql database details & then run laravel migrations by using command `php artisan migrate`"
+echo "Please first edit .env file with your mysql database details & then run laravel migrations by using command \"php artisan migrate\" & finally seed database by using command \"php artisan db:seed\""

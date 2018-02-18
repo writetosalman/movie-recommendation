@@ -16,6 +16,8 @@ For installation, use `install.sh` provided: -
 - **After** installation is complete, edit .env file with correct MySQL details
 - Run laravel migrations by running command 
 `php artisan migrate`
+- Run laravel seeder to seed database by running command 
+`php artisan db:seed`
 
 ### Running
 
