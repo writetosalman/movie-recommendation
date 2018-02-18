@@ -26,3 +26,10 @@ For viewing project in browser: -
 - cd into the directory
 - Run command `php artisan serve`
 - Visit the URL mentioned in the command prompt.
+
+### Running Tests
+
+- **React** tests are executed by command `jest` or `npm run test`
+- **PHP** tests are executed by `./vendor/bin/phpunit` 
+
+--
