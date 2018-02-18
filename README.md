@@ -10,8 +10,12 @@ It returns movie recommendations based on **Genre** and **Showing time** selecte
 For installation, use `install.sh` provided: -
 
 - Change into the directory
-- Give execute permissions to install file `chown +x install.sh`
+- Give execute permissions to install file 
+`chmod +x install.sh`
 - Execute it `./install.sh`
+- **After** installation is complete, edit .env file with correct MySQL details
+- Run laravel migrations by running command 
+`php artisan migrate`
 
 ### Running
 
