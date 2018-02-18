@@ -45,7 +45,7 @@ export default class SearchResults extends Component
                         })
                     }
                     {
-                        this.state.appState.movies.length === 0 &&
+                        this.state.appState.isLoading === false && this.state.appState.movies.length === 0 &&
                         <tr>
                             <td colSpan={4}>no movie recommendations</td>
                         </tr>

@@ -69,7 +69,8 @@ export default class SearchForm extends Component
 
         // Form validation
         this.setState({
-            submitButtonDisabled:   !this.form.isValid()
+            submitButtonDisabled:   !this.form.isValid(),
+            statusMessage:          ''
         });
 
         // Return if form is in-valid
@@ -92,7 +93,6 @@ export default class SearchForm extends Component
             showTime:   this.state.showTime,
         }).then(
                 (response) => {
-                    console.log('movies', response);
                     this.props.setAppState({
                         isLoading:  false,
                         movies:     response.data
@@ -100,7 +100,6 @@ export default class SearchForm extends Component
                     return false;
                 },
                 (error) => {
-                    console.log('movies', response);
                     if ( error.response.data && error.response.data.message ) {
                         this.setState({
                             statusMessage: error.response.data.message
@@ -133,7 +132,7 @@ export default class SearchForm extends Component
                                     <input type="text" className="form-control" id="idInputGenre" name="genre" placeholder="Type genre"
                                            ref={ (input) => { this.textInput = input; } }   tabIndex="1"
                                            onChange={this.handleInputChange} value={this.state.genre} required />
-                                        <small className="form-text text-muted">Movie genre can be Dramas, Comedy, Romance etc.</small>
+                                        <small className="form-text text-muted">Movie genre can be Animation, Drama, Comedy etc.</small>
 
                                         <FieldFeedbacks for="genre" show="all">
                                             <FieldFeedback when="*" />

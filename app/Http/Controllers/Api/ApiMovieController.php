@@ -44,6 +44,9 @@ class ApiMovieController extends BaseController
             }
         }
 
+        /**
+         * Find movie show times based on genre and time
+         */
         $movies = $this->movieService->getMoviesByGenreAndShowTime($request->input('genre'), $request->input('showTime'));
 
         if ( count($movies) <= 0 ) {

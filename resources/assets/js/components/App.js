@@ -26,7 +26,6 @@ export default class App extends Component {
      * @param newState
      */
     setAppState(newState) {
-        console.log('setAppState', newState);
 
         // Update state if newState is passed
         if ( newState ) {
