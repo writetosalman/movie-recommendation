@@ -26,7 +26,35 @@ class MovieRepository extends Repository
      * @return mixed
      */
     public function getMoviesByGenreAndShowTime($genre, $showTime) {
-        //\DB::enableQueryLog();
+        \DB::enableQueryLog();
+
+        $results = DB::select("select m.id from movies m
+                    where id in (
+                      SELECT gm.movie_id
+                      FROM genres g, genre_movie gm
+                      WHERE g.name LIKE ? AND gm.genre_id = g.id
+                    ) and id in (
+                      SELECT mst.movie_id
+                      FROM show_times st, movie_show_time mst
+                      WHERE st.show_time > ? AND mst.show_time_id = st.id
+                    )", [ $genre, $showTime ]);
+
+        $movieIdsArr = [];
+        foreach ( $results as $result ) {
+            $movieIdsArr[] = $result->id;
+        }
+
+        $movies = $this->model
+            ->join('ratings',    'ratings.movie_id',    '=', 'movies.id')
+            ->whereIn('movies.id', $movieIdsArr)
+            ->select('movies.id AS id', 'movies.name AS name', 'ratings.rating AS rating')
+            ->orderBy('ratings.rating', 'desc')
+            ->get();
+
+        return $this->getArrayInRequiredFormat($movies);
+    }
+    public function getMoviesByGenreAndShowTime_With_Laravel($genre, $showTime) {
+        \DB::enableQueryLog();
 
         /**
          * Get All movies in genre required
@@ -102,6 +130,7 @@ class MovieRepository extends Repository
                 'showings'  => $arrShowTimes,
             ];
         }
+        print_r(\DB::getQueryLog());
 
         return $arrMovies;
     }
